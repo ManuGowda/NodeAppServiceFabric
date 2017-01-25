@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <Parameters>
+        <Parameter Name="Website_InstanceCount" DefaultValue="-1" />
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="TrackingService" ServiceManifestVersion="1.0" />
+    </ServiceManifestImport>
+    <DefaultServices>
+        <Service Name="TrackingService">
+            <StatelessService ServiceTypeName="TrackingService" InstanceCount="[Website_InstanceCount]">
+                <SingletonPartition />
+            </StatelessService>
+        </Service>
+    </DefaultServices>
+</ApplicationManifest>
